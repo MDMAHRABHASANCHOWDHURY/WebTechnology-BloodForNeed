@@ -1,0 +1,346 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    min-height: 100vh;
+}
+header {
+    text-align: center;
+    margin: 25px 0;
+}
+header img {
+    width: 110px;
+}
+header h1 {
+    color: #d9534f;
+    margin-top: 12px;
+}
+.page-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+.form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card {
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07);
+    margin-bottom: 18px;
+}
+.input-group {
+    display: block;
+    margin-bottom: 15px;
+}
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+}
+.input-group input[type="checkbox"] {
+    width: auto;
+}
+.btn-primary {
+    background: #d9534f;
+    border-color: #d9534f;
+}
+.btn-primary:hover {
+    background: #c9302c;
+    border-color: #c9302c;
+}
+a,
+.nav-link {
+    color: #b52b27;
+}
+.nav-tabs .nav-link.active {
+    color: #b52b27;
+    font-weight: bold;
+}
+.nav-tabs {
+    margin-bottom: 20px;
+}
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+#message:empty {
+    display: none;
+}
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 30px 10px;
+}
+[hidden] {
+    display: none !important;
+}
+@media (max-width: 600px) {
+    .page-container {
+        padding: 12px;
+    }
+    .form-container {
+        padding: 20px;
+        margin: 20px 12px;
+    }
+    header h1 {
+        font-size: 28px;
+    }
+}
+/* Shared reference layout on login, forms, dashboards and terms. */
+.home-page.inner-page {
+    padding: 0;
+    display: block;
+    background: #fff;
+}
+.inner-page .home-hero {
+    padding: 90px 0 80px;
+}
+.inner-page .home-hero h1 {
+    margin-bottom: 26px;
+    font-size: clamp(42px, 5vw, 82px);
+}
+.page-description {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 35px;
+    max-width: 700px;
+}
+.inner-page .page-body {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: white;
+}
+.inner-page .terms-content {
+    padding: 0;
+}
+.inner-page .terms-content h3 {
+    color: #111;
+    margin: 30px 0 15px;
+}
+.inner-page .terms-content p {
+    line-height: 1.7;
+}
+.inner-page .nav-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 0;
+    gap: 10px;
+}
+.inner-page .nav-tabs .nav-link {
+    text-align: left;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #333;
+}
+.inner-page .nav-tabs .nav-link:hover,
+.inner-page .nav-tabs .nav-link.active {
+    background: #f3f3f3;
+    border-color: #dedede;
+    color: #111;
+}
+.inner-page .btn-primary {
+    background: #050505;
+    border-color: #050505;
+}
+.inner-page .btn-primary:hover {
+    background: #333;
+}
+.inner-page #profileForm,
+.inner-page #photoForm,
+.inner-page #passwordForm,
+.inner-page #registrationForm,
+.inner-page #patientForm,
+.inner-page #donorSearch {
+    padding: 0;
+    margin-bottom: 35px;
+}
+.inner-page .main-content {
+    min-width: 0;
+}
+.inner-page #welcome {
+    margin-top: 20px;
+    color: #555;
+}
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+.input-group .password-wrapper input {
+    padding-right: 85px;
+}
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 5px 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #111;
+    cursor: pointer;
+}
+.toggle-password:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+}
+@media (max-width: 760px) {
+    .inner-page .home-hero {
+        padding: 60px 0 45px;
+    }
+    .inner-page .nav-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .inner-page .nav-tabs .nav-link {
+        padding: 8px 10px;
+    }
+    .page-description {
+        font-size: 17px;
+    }
+}
+.address-fields,
+.location-sort-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 20px;
+    margin-bottom: 15px;
+}
+.sorting-note {
+    grid-column: 1 / -1;
+    font-size: 14px;
+    color: #666;
+}
+.sidebar-visual {
+    width: 100%;
+    display: block;
+    margin-top: 35px;
+    border-radius: 8px;
+}
+.donation-visual {
+    margin: 50px 0 0;
+}
+.donation-visual img {
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.donation-visual figcaption {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+}
+.community-visual {
+    display: block;
+    width: 100%;
+    margin: 30px 0 0;
+    border-radius: 8px;
+}
+@media (max-width: 600px) {
+    .address-fields,
+    .location-sort-controls {
+        grid-template-columns: 1fr;
+    }
+    .sidebar-visual {
+        max-width: 300px;
+    }
+}
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    margin: 25px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.donation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+.donation-table th,
+.donation-table td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #e5e5e5;
+}
+.donation-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.donation-table tr:last-child td {
+    border-bottom: 0;
+}
+.donation-table .btn {
+    white-space: nowrap;
+    font-size: 13px;
+}
+/* Role dashboards appear only after their session and role checks pass. */
+.role-page:not(.session-checked)
+{
+    visibility: hidden;
+}
+.search-button
+{
+    margin: 5px 0 25px;
+    min-width: 115px;
+}
+.inner-page .dashboard-layout
+{
+    display: block;
+}
+.site-header .role-feature-navigation
+{
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    margin: 0;
+}
+.site-header .role-feature-navigation .nav-link
+{
+    padding: 9px 12px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+@media (max-width: 1000px)
+{
+    .site-header .role-feature-navigation { order: 3; flex-basis: 100%; }
+}

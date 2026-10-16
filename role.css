@@ -1,0 +1,10 @@
+.card
+{
+    text-align: center;
+    padding: 30px;
+    height: calc(100% - 18px);
+}
+.card h3
+{
+    color: #d9534f;
+}

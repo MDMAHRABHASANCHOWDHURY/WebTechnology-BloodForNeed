@@ -1,0 +1,13 @@
+#registrationForm > button
+{
+    width: 100%;
+    padding: 12px;
+}
+#donorFields,
+#staffFields,
+#inviteFields
+{
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}

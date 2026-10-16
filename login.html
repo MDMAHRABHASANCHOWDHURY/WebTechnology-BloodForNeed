@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login Portal - Blood For Need</title>
+        <link rel="icon" type="image/png" href="logo.png" />
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        <link rel="stylesheet" href="common.css" />
+        <link rel="stylesheet" href="login.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body class="home-page inner-page">
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="Blood For Need Home">
+                <img src="logo.png" alt="Blood For Need Logo" />
+            </a>
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <a href="index.html#requests">Blood Requests</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#about">Our Community</a>
+                <a href="terms.html">Guidelines</a>
+            </nav>
+            <div class="header-actions">
+                <a class="login-link" href="login.html">Log In</a>
+                <a class="outline-link" href="index.html#requests">Find Blood</a>
+                <a class="dark-button" href="register.html">Become A Donor</a>
+            </div>
+        </header>
+        <main class="home-container">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="index.html">Home</a><span aria-hidden="true">/</span
+                ><span>Login Portal</span>
+            </nav>
+            <section class="home-hero">
+                <h1>Welcome Back.</h1>
+                <p class="page-description">Log In To Your Account.</p>
+                <div class="community-signature">
+                    <img src="logo.png" alt="" />
+                    <span>Blood For Need</span>
+                </div>
+            </section>
+            <div class="content-layout">
+                <aside class="explore-navigation">
+                    <p class="section-label">Explore Blood For Need</p>
+                    <a href="index.html#requests">Open Blood Requests</a
+                    ><a href="login.html">Log In</a><a href="register.html">Create An Account</a
+                    ><a href="terms.html">Community Guidelines</a>
+                    <img
+                        src="community-bangladesh.png"
+                        alt="Bangladesh-inspired Blood Donation Community Illustration"
+                        class="sidebar-visual"
+                    />
+                </aside>
+                <div class="main-content">
+                    <div class="section-heading"><h2>Login Portal</h2></div>
+                    <div class="form-container page-body">
+                        <p id="message" role="status" aria-live="polite"></p>
+                        <form id="loginForm">
+                            <div class="input-group">
+                                <label for="identity">Email Or Username</label>
+                                <input type="text" id="identity" name="identity" required="" />
+                            </div>
+                            <div class="input-group">
+                                <label for="password">Password</label>
+                                <div class="password-wrapper">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        required=""
+                                    /><button
+                                        type="button"
+                                        class="toggle-password"
+                                        data-target="password"
+                                        aria-label="Show Password"
+                                        aria-pressed="false"
+                                    >
+                                        Show
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </form>
+                        <p class="mt-3">
+                            <a href="register.html">Create Account</a>
+                        </p>
+                        <p>Forgot Your Password? Contact An Administrator For Account Recovery.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="home-footer">
+            <span>Blood For Need © 2026</span>
+            <a href="index.html#contact">Contact Us</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+        </footer>
+
+        <script src="locations.js"></script>
+        <script src="common.js"></script>
+        <script src="login.js"></script>
+    </body>
+</html>

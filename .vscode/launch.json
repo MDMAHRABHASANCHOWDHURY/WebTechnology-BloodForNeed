@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Blood For Need \u2014 Start App",
+            "program": "${workspaceFolder}/dev-start.js",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "skipFiles": [
+                "<node_internals>/**",
+                "${workspaceFolder}/node_modules/**"
+            ],
+            "serverReadyAction": {
+                "pattern": "http://localhost:([0-9]+)",
+                "uriFormat": "http://localhost:%s/index.html?start=1",
+                "action": "openExternally"
+            }
+        }
+    ]
+}

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create an Account - Blood For Need</title>
+        <link rel="icon" type="image/png" href="logo.png" />
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        <link rel="stylesheet" href="common.css" />
+        <link rel="stylesheet" href="register.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body class="home-page inner-page">
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="Blood For Need Home">
+                <img src="logo.png" alt="Blood For Need Logo" />
+            </a>
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <a href="index.html#requests">Blood Requests</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#about">Our Community</a>
+                <a href="terms.html">Guidelines</a>
+            </nav>
+            <div class="header-actions">
+                <a class="login-link" href="login.html">Log In</a>
+                <a class="outline-link" href="index.html#requests">Find Blood</a>
+                <a class="dark-button" href="register.html">Become A Donor</a>
+            </div>
+        </header>
+        <main class="home-container">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="index.html">Home</a><span aria-hidden="true">/</span
+                ><span>Create An Account</span>
+            </nav>
+            <section class="home-hero">
+                <h1>Join Our Community.</h1>
+                <p class="page-description">Start With A Simple Act Of Kindness.</p>
+                <div class="community-signature">
+                    <img src="logo.png" alt="" />
+                    <span>Blood For Need</span>
+                </div>
+            </section>
+            <div class="content-layout">
+                <aside class="explore-navigation">
+                    <p class="section-label">Explore Blood For Need</p>
+                    <a href="index.html#requests">Open Blood Requests</a
+                    ><a href="login.html">Log In</a><a href="register.html">Create An Account</a
+                    ><a href="terms.html">Community Guidelines</a>
+                    <img
+                        src="community-bangladesh.png"
+                        alt="Bangladesh-inspired Blood Donation Community Illustration"
+                        class="sidebar-visual"
+                    />
+                </aside>
+                <div class="main-content">
+                    <div class="section-heading"><h2>Create An Account</h2></div>
+                    <div class="form-container page-body">
+                        <p id="message" role="status" aria-live="polite"></p>
+                        <form id="registrationForm" enctype="multipart/form-data">
+                            <div class="input-group">
+                                <label for="role">Account Type</label>
+                                <select id="role" name="role" required=""></select>
+                            </div>
+                            <div class="input-group">
+                                <label for="username">Username</label>
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    required=""
+                                    minlength="3"
+                                    maxlength="50"
+                                />
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required="" />
+                            </div>
+                            <div class="input-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required="" />
+                            </div>
+                            <div class="address-fields" data-address="true">
+                                <div class="input-group">
+                                    <label for="division">Division</label
+                                    ><select
+                                        id="division"
+                                        name="division"
+                                        required=""
+                                        class="division-select"
+                                    ></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="district">District</label
+                                    ><select
+                                        id="district"
+                                        name="district"
+                                        required=""
+                                        class="district-select"
+                                    ></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="cityCorporation">City Corporation</label
+                                    ><select
+                                        id="cityCorporation"
+                                        name="cityCorporation"
+                                        class="cityCorporation-select"
+                                    ></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="postalCode">Postcode / ZIP Code</label
+                                    ><input
+                                        id="postalCode"
+                                        name="postalCode"
+                                        required=""
+                                        type="text"
+                                        pattern="[0-9]{4}"
+                                        maxlength="4"
+                                        inputmode="numeric"
+                                        placeholder="E.G. 1212"
+                                    />
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="area">Area / Neighbourhood</label>
+                                <input type="text" id="area" name="area" required="" />
+                            </div>
+                            <div class="input-group">
+                                <label for="countryCode">Country Code</label
+                                ><select
+                                    id="countryCode"
+                                    name="countryCode"
+                                    required=""
+                                    class="country-code-select"
+                                ></select>
+                            </div>
+                            <div class="input-group">
+                                <label for="phone">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    required=""
+                                    placeholder="01712345678"
+                                />
+                            </div>
+                            <div id="donorFields">
+                                <div class="input-group">
+                                    <label for="bloodGroup">Blood Group</label>
+                                    <select
+                                        id="bloodGroup"
+                                        name="bloodGroup"
+                                        class="blood-select"
+                                    ></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="18" max="65" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="weight">Weight (Kg)</label>
+                                    <input
+                                        type="number"
+                                        id="weight"
+                                        name="weight"
+                                        min="45"
+                                        max="300"
+                                    />
+                                </div>
+                                <div class="input-group">
+                                    <label for="lastDonation">Last Donation</label>
+                                    <input type="date" id="lastDonation" name="lastDonation" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="skills">Skills (Comma Separated)</label>
+                                    <input type="text" id="skills" name="skills" />
+                                </div>
+                                <label
+                                    ><input type="checkbox" id="available" checked="" /> Available
+                                    To Donate</label
+                                >
+                            </div>
+                            <div id="staffFields">
+                                <div class="input-group">
+                                    <label for="hospital">Hospital</label>
+                                    <input type="text" id="hospital" name="hospital" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="designation">Designation</label>
+                                    <input type="text" id="designation" name="designation" />
+                                </div>
+                                <div class="input-group">
+                                    <label for="staffId">Staff ID</label>
+                                    <input type="text" id="staffId" name="staffId" />
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="password">Password</label>
+                                <div class="password-wrapper">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        required=""
+                                        minlength="8"
+                                        maxlength="72"
+                                    /><button
+                                        type="button"
+                                        class="toggle-password"
+                                        data-target="password"
+                                        aria-label="Show Password"
+                                        aria-pressed="false"
+                                    >
+                                        Show
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <div class="password-wrapper">
+                                    <input
+                                        type="password"
+                                        id="confirm-password"
+                                        name="confirm-password"
+                                        required=""
+                                        minlength="8"
+                                        maxlength="72"
+                                    /><button
+                                        type="button"
+                                        class="toggle-password"
+                                        data-target="confirm-password"
+                                        aria-label="Show Confirm Password"
+                                        aria-pressed="false"
+                                    >
+                                        Show
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="inviteFields">
+                                <div class="input-group">
+                                    <label for="inviteCode">Admin Invite Code</label>
+                                    <input type="text" id="inviteCode" name="inviteCode" />
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="photo">Profile Photo (JPEG/PNG, Below 2 Mb)</label>
+                                <input
+                                    type="file"
+                                    id="photo"
+                                    name="photo"
+                                    accept="image/jpeg,image/png"
+                                />
+                            </div>
+                            <label
+                                ><input type="checkbox" id="terms" name="terms" required="" /> I
+                                Agree To The <a href="terms.html">Terms &amp; Conditions</a></label
+                            ><button class="btn btn-primary mt-3" type="submit">Register</button>
+                        </form>
+                        <p class="mt-3">Already Registered? <a href="login.html">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="home-footer">
+            <span>Blood For Need © 2026</span>
+            <a href="index.html#contact">Contact Us</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+        </footer>
+
+        <script src="locations.js"></script>
+        <script src="common.js"></script>
+        <script src="register.js"></script>
+    </body>
+</html>

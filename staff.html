@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Medical Staff Dashboard - Blood For Need</title>
+        <link rel="icon" type="image/png" href="logo.png">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="common.css">
+        <link rel="stylesheet" href="staff.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body class="home-page inner-page role-page">
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="Blood For Need Home">
+                <img src="logo.png" alt="Blood For Need Logo">
+            </a>
+            <nav class="main-navigation nav-tabs role-feature-navigation" aria-label="Main Navigation">
+                        <button type="button" class="nav-link" data-view="hospitals">
+                            Hospitals
+                        </button>
+                        <button type="button" class="nav-link active" data-view="availableRequests">
+                            Available Requests</button><button class="nav-link" type="button" data-view="profile" hidden="">
+                            My Profile</button><button class="nav-link" type="button" data-view="patient">
+                            Add Patient</button><button class="nav-link" type="button" data-view="donors">
+                            Find Donors</button><button class="nav-link" type="button" data-view="requests">
+                            My Requests</button><button class="nav-link" type="button" data-view="passwordChange">
+                            Password Change</button><button class="nav-link" type="button" data-view="recordDonation">Record Donation</button><button class="nav-link" type="button" data-view="publicRequests">Public Blood Requests</button><button id="logout" hidden="" class="nav-link" type="button">Logout</button>
+                    </nav>
+            <div class="header-actions">
+                <a class="login-link" href="staff.html">Dashboard</a>
+                <a class="outline-link" href="index.html#requests">Find Blood</a>
+            <a class="login-link" href="staff.html#profile">My Profile</a></div>
+        </header>
+        <main class="home-container">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="index.html">Home</a><span aria-hidden="true">/</span><span>Medical Staff Dashboard</span>
+            </nav>
+            <section class="home-hero">
+                <h1>Connect Care With Kindness.</h1>
+                <p class="page-description">Coordinate Patient Requests And Donor Support.</p>
+                <div class="community-signature">
+                    <img src="logo.png" alt="">
+                    <span>Blood For Need</span>
+                </div>
+                <p id="welcome"></p>
+            </section>
+            <div class="content-layout dashboard-layout">
+                
+                <div class="main-content">
+                    <div class="section-heading"><h2>Medical Staff Dashboard</h2></div>
+                    <div class="page-container page-body">
+                        <p id="message" role="status" aria-live="polite"></p>
+
+                        <section id="recordDonation" class="dashboard-section" hidden><h3>Record Donation</h3><p>Record A Completed Donation After Clinical Verification. Only Donors Who Pledged To Your Patient Request Can Be Selected.</p><form id="recordDonationForm"><div class="input-group"><label for="recordRequest">Patient Request</label><select id="recordRequest" name="request" required></select></div><div class="input-group"><label for="recordDonor">Pledged Donor</label><select id="recordDonor" name="donor" required></select></div><div class="input-group"><label for="recordDate">Donation Date</label><input id="recordDate" type="date" name="donationDate" required></div><div class="input-group"><label for="recordNotes">Notes</label><textarea id="recordNotes" name="notes" maxlength="1000"></textarea></div><button class="btn btn-primary">Confirm Completed Donation</button></form><p id="recordStatus" role="status"></p></section><section id="publicRequests" class="dashboard-section" hidden><h3>Public Blood Requests</h3><p id="publicRequestsStatus" role="status"></p><div id="publicRequestsList" class="community-grid"></div></section><section id="profile" class="dashboard-section" hidden="">
+                            <h3>My Profile</h3>
+                            <img id="profilePhoto" class="profile-photo" alt="Profile Photo" hidden="">
+                            <form id="profileForm">
+                                <div class="input-group">
+                                    <label for="profile-name">Full Name</label>
+                                    <input type="text" id="profile-name" name="name" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="profile-email">Email</label><input id="profile-email" name="email" type="email" required="">
+                                </div>
+                                <div class="address-fields" data-address="true">
+                                    <div class="input-group">
+                                        <label for="profile-division">Division</label><select id="profile-division" name="division" required="" class="division-select"></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-district">District</label><select id="profile-district" name="district" required="" class="district-select"></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-cityCorporation">City Corporation</label><select id="profile-cityCorporation" name="cityCorporation" class="cityCorporation-select"></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-postalCode">Postcode / ZIP Code</label><input id="profile-postalCode" name="postalCode" required="" type="text" pattern="[0-9]{4}" maxlength="4" inputmode="numeric" placeholder="E.G. 1212">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="profile-area">Area / Neighbourhood</label>
+                                    <input type="text" id="profile-area" name="area" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="profile-countryCode">Country Code</label><select id="profile-countryCode" name="countryCode" required="" class="country-code-select"></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="profile-phone">Phone Number</label>
+                                    <input type="tel" id="profile-phone" name="phone" required="" placeholder="01712345678">
+                                </div>
+                                <div id="profile-donorFields" data-profile="donor">
+                                    <div class="input-group">
+                                        <label for="profile-bloodGroup">Blood Group</label>
+                                        <select id="profile-bloodGroup" name="bloodGroup" class="blood-select"></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-age">Age</label>
+                                        <input type="number" id="profile-age" name="age" min="18" max="65">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-weight">Weight (Kg)</label>
+                                        <input type="number" id="profile-weight" name="weight" min="45" max="300">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-lastDonation">Last Donation</label>
+                                        <input type="date" id="profile-lastDonation" name="lastDonation">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-skills">Skills (Comma Separated)</label>
+                                        <input type="text" id="profile-skills" name="skills">
+                                    </div>
+                                    <label><input type="checkbox" id="profile-available" checked="" name="available">
+                                        Available To Donate</label>
+                                </div>
+                                <div id="profile-staffFields" data-profile="staff">
+                                    <div class="input-group">
+                                        <label for="profile-hospital">Hospital</label>
+                                        <input type="text" id="profile-hospital" name="hospital">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-designation">Designation</label>
+                                        <input type="text" id="profile-designation" name="designation">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="profile-staffId">Staff ID</label>
+                                        <input type="text" id="profile-staffId" name="staffId">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-3">Save Profile</button>
+                            </form>
+                            <form id="photoForm" enctype="multipart/form-data">
+                                <div class="input-group">
+                                    <label for="photo">Update Photo</label>
+                                    <input type="file" id="photo" name="photo" required="" accept="image/jpeg,image/png">
+                                </div>
+                                <button class="btn btn-primary">Upload Photo</button>
+                            </form>
+                        </section>
+                        <section id="patient" class="dashboard-section" hidden="">
+                            <h3>Add A Patient Request</h3>
+                            <form id="patientForm">
+                                <div class="input-group">
+                                    <label for="patientName">Patient Name</label>
+                                    <input type="text" id="patientName" name="patientName" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="patientAge">Patient Age</label>
+                                    <input type="number" id="patientAge" name="patientAge" required="" min="0" max="120">
+                                </div>
+                                <div class="input-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender" required=""></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="patientHospital">Hospital</label>
+                                    <input type="text" id="patientHospital" name="patientHospital" placeholder="Search Hospital / Clinic Name"><button type="button" id="searchPatientHospital" class="btn btn-primary search-button">
+                                        Search</button><label for="hospitalChoice">Choose Hospital / Clinic</label><select id="hospitalChoice" name="hospitalId" required=""></select><small>Search The Directory, Then Select A Facility. Ask Admin To
+                                        Add A Missing Clinic.</small>
+                                </div>
+                                <div class="address-fields" data-address="true">
+                                    <div class="input-group">
+                                        <label for="patient-division">Division</label><select id="patient-division" name="division" required="" class="division-select"></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="patient-district">District</label><select id="patient-district" name="district" required="" class="district-select"></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="patient-cityCorporation">City Corporation</label><select id="patient-cityCorporation" name="cityCorporation" class="cityCorporation-select"></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="patient-postalCode">Postcode / ZIP Code</label><input id="patient-postalCode" name="postalCode" required="" type="text" pattern="[0-9]{4}" maxlength="4" inputmode="numeric" placeholder="E.G. 1212">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="patientArea">Area / Neighbourhood</label>
+                                    <input type="text" id="patientArea" name="patientArea" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="patientGroup">Blood Group</label>
+                                    <select id="patientGroup" name="patientGroup" required="" class="blood-select"></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="units">Units</label>
+                                    <input type="number" id="units" name="units" required="" min="1" max="20" value="1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="disease">Disease / Reason</label>
+                                    <input type="text" id="disease" name="disease" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="condition">Condition</label>
+                                    <select id="condition" name="condition" required=""></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="conditionNote">Condition Note</label>
+                                    <textarea id="conditionNote" name="conditionNote" rows="3" maxlength="1000"></textarea>
+                                </div>
+                                <div class="input-group">
+                                    <label for="ward">Ward</label>
+                                    <input type="text" id="ward" name="ward" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="neededBy">Needed By</label>
+                                    <input type="datetime-local" id="neededBy" name="neededBy" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="contactPhone">Contact Phone</label>
+                                    <input type="tel" id="contactPhone" name="contactPhone" required="">
+                                </div>
+                                <button class="btn btn-primary">Create Patient Request</button>
+                            </form>
+                        </section>
+                        <section id="donors" class="dashboard-section" hidden="">
+                            <h3>Find Compatible Donors</h3>
+                            <p>
+                                Matching Uses Red Blood Cell Compatibility And A 120-Day Donation
+                                Interval. Clinical Eligibility Must Be Confirmed By Medical Staff.
+                            </p>
+                            <form id="donorSearch">
+                                <div class="input-group">
+                                    <label for="recipientGroup">Recipient Blood Group</label>
+                                    <select id="recipientGroup" name="recipientGroup" required="" class="blood-select"></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="recipientArea">Patient Area</label>
+                                    <input type="text" id="recipientArea" name="recipientArea" required="">
+                                </div>
+                                <div class="input-group">
+                                    <label for="recipientPostalCode">Patient Postcode / ZIP (Optional)</label><input id="recipientPostalCode" name="recipientPostalCode" type="text" maxlength="4" pattern="[0-9]{4}">
+                                </div>
+                                <button class="btn btn-primary">Search</button>
+                            </form>
+                            <div id="donorList" class="row mt-3"></div>
+                        </section>
+                        <section id="requests" class="dashboard-section" hidden="">
+                            <h3>My Patient Requests</h3>
+                            <div id="staffRequests"></div>
+                        </section>
+                        <section id="passwordChange" class="dashboard-section" hidden="">
+                            <h3>Request A Password Change</h3>
+                            <p>An Administrator Must Approve Your New Password.</p>
+                            <form id="passwordForm">
+                                <div class="input-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" id="currentPassword" name="currentPassword" required=""><button type="button" class="toggle-password" data-target="currentPassword" aria-label="Show Current Password" aria-pressed="false">
+                                            Show
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="newPassword">New Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" id="newPassword" name="newPassword" required="" minlength="8" maxlength="72"><button type="button" class="toggle-password" data-target="newPassword" aria-label="Show New Password" aria-pressed="false">
+                                            Show
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" id="confirmPassword" name="confirmPassword" required=""><button type="button" class="toggle-password" data-target="confirmPassword" aria-label="Show Confirm New Password" aria-pressed="false">
+                                            Show
+                                        </button>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">Submit Request</button>
+                            </form>
+                            <div id="passwordHistory" class="mt-3"></div>
+                        </section>
+                        <section id="availableRequests" class="dashboard-section">
+                            <h3>Available Requests</h3>
+                            <p>
+                                Open, Fulfilled And Cancelled Donation Requests. You Can Offer Help
+                                On Compatible Open Requests.
+                            </p>
+                            <div>
+                                <div class="input-group">
+                                    <label for="groupFilter">Blood Group</label><select id="groupFilter" class="blood-filter"></select>
+                                </div>
+                                <div class="location-sort-controls">
+                                    <div class="input-group">
+                                        <label for="sortArea">Your Area</label><input id="sortArea">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="sortPostalCode">Your Postcode</label><input id="sortPostalCode" maxlength="4" inputmode="numeric" pattern="[0-9]{4}">
+                                    </div>
+                                    <p class="sorting-note">
+                                        Same Postcode First, Then Same Area. All Hospital Requests
+                                        Remain Visible.
+                                    </p>
+                                </div>
+                                <button type="button" id="searchRequests" class="btn btn-primary search-button">
+                                    Search
+                                </button>
+                            </div>
+                            <div class="table-scroll">
+                                <table class="donation-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Hospital</th>
+                                            <th>Area / Postcode</th>
+                                            <th>Blood Group</th>
+                                            <th>Units</th>
+                                            <th>Needed By</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="availableTable"></tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <section id="hospitals" class="dashboard-section" hidden="">
+                            <h3>Hospitals</h3>
+                            <p>
+                                Browse The DGHS Healthcare-facility Directory, Including Facilities
+                                With No Donation Requests.
+                            </p>
+                            <div class="location-sort-controls">
+                                <div class="input-group">
+                                    <label for="hospitalSearch">Hospital / Clinic Name</label><input id="hospitalSearch" placeholder="Search Name">
+                                </div>
+                                <div class="input-group">
+                                    <label for="hospitalDistrict">District</label><select id="hospitalDistrict"></select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="hospitalArea">Your Area</label><input id="hospitalArea">
+                                </div>
+                                <div class="input-group">
+                                    <label for="hospitalPostcode">Your Postcode (Matches First)</label><input id="hospitalPostcode" inputmode="numeric" maxlength="4">
+                                </div>
+                            </div>
+                            <button type="button" id="searchHospitals" class="btn btn-primary search-button">
+                                Search
+                            </button>
+                            <div class="table-scroll">
+                                <table class="donation-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Hospital / Clinic</th>
+                                            <th>Type</th>
+
+                                            <th>Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="hospitalTable"></tbody>
+                                </table>
+                            </div>
+                            <p id="directoryCoverage" class="sorting-note"></p>
+                            <div class="actions">
+                                <button id="previousHospitalPage" type="button" class="btn btn-primary">
+                                    Previous</button><span id="hospitalPageLabel"></span><button id="nextHospitalPage" type="button" class="btn btn-primary">
+                                    Next
+                                </button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="home-footer">
+            <span>Blood For Need © 2026</span>
+            <a href="index.html#contact">Contact Us</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+        </footer>
+
+        <script src="locations.js"></script>
+        <script src="common.js"></script>
+        <script src="staff.js"></script><script src="community-ui.js"></script><script src="public-request.js"></script>
+    
+
+</body></html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blood For Need — Give Blood, Give Hope</title>
+        <link rel="icon" type="image/png" href="logo.png" />
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        <link rel="stylesheet" href="common.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body class="home-page">
+        <header class="site-header">
+            <a class="brand" href="index.html" aria-label="Blood For Need Home">
+                <img src="logo.png" alt="Blood For Need Logo" />
+            </a>
+            <nav class="main-navigation" aria-label="Main Navigation"><a href="#about">About Us</a><a href="#blood-search">Search Blood</a><a href="#make-request">Request Blood</a><a href="#requests">Requests</a><a href="#activities">Activities</a><a href="#news">News</a><a href="#units">Units</a><a href="#contact">Contact</a></nav>
+            <div class="header-actions">
+                <a class="login-link" href="login.html">Log In</a>
+                <a class="outline-link" href="#requests">Find Blood</a>
+                <a class="dark-button" href="register.html">Become A Donor</a>
+            </div>
+        </header>
+
+        <main class="home-container">
+            <section class="community-hero"><div><p class="section-label">Voluntary Blood Donation In Bangladesh</p><h1>A Little Of Your Blood.<br>A Lifetime Of Hope.</h1><p>Connect With Donors, Find Hospital Requests And Help Build A Caring Community Across Bangladesh.</p><div class="actions"><a class="dark-button" href="#make-request">Request Blood</a><a class="outline-link" href="#blood-search">Search Blood</a><a class="outline-link" href="register.html">Donate Blood</a></div></div><figure><img src="donation-bangladesh.png" alt="Bangladesh-inspired Blood Donation Illustration"><figcaption>AI-generated Bangladesh-inspired Visual</figcaption></figure></section>
+            <div id="communityStats" class="community-grid stats-grid" aria-live="polite"></div>
+            <div class="content-layout">
+                <div class="main-content">
+                    <section id="make-request" class="information-section"><p class="section-label">Request Blood — No Login Needed</p><h2>Ask For Blood When You Need It.</h2><p>Enter Your Location And Hospital Details. Your Name, Contact Number And Detailed Address Are Shared Only With Approved Medical Staff And Administrators.</p><form id="publicRequestForm" class="community-form"><div class="input-group"><label for="requestName">Name</label><input id="requestName" name="name" required maxlength="120"></div><div class="input-group"><label for="requestDivision">Division</label><select id="requestDivision" name="division" required></select></div><div class="input-group"><label for="requestDistrict">District</label><select id="requestDistrict" name="district" required disabled></select></div><div class="input-group"><label for="requestUpazila">Upazila / Thana</label><select id="requestUpazila" name="upazila" required disabled></select></div><div class="input-group"><label for="requestArea">Area / Locality</label><input id="requestArea" name="area" placeholder="E.g. Aftabnagar, Badda" required maxlength="120"></div><div class="input-group"><label for="requestDetails">Address Details (Optional)</label><input id="requestDetails" name="addressDetails" placeholder="House, Road, Block" maxlength="500"></div><div class="input-group"><label for="requestHospital">Hospital Name</label><input id="requestHospital" name="hospital" required maxlength="120"></div><div class="input-group"><label for="requestCondition">Condition</label><select id="requestCondition" name="condition" required><option value="">Select Condition</option><option>Critical</option><option>Serious</option><option>Stable</option></select></div><div class="input-group"><label for="requestGroup">Blood Group</label><select id="requestGroup" name="bloodGroup" class="blood-select" required></select></div><div class="input-group"><label for="requestUnits">Units Needed</label><input id="requestUnits" name="units" type="number" min="1" max="20" value="1" required></div><div class="input-group"><label for="requestContact">Contact Number (+880)</label><input id="requestContact" name="contactPhone" type="tel" placeholder="01712345678" required></div><div class="input-group"><label for="requestNeeded">When Blood Is Needed</label><input id="requestNeeded" name="neededBy" type="datetime-local" required></div><div class="input-group"><label for="requestPostcode">Postcode (Optional)</label><input id="requestPostcode" name="postalCode" pattern="[0-9]{4}" maxlength="4" inputmode="numeric"></div><div class="input-group"><label for="requestNote">Condition Details (Optional)</label><textarea id="requestNote" name="conditionNote" maxlength="1000"></textarea></div><button class="btn btn-primary">Submit Blood Request</button></form><p id="publicRequestStatus" role="status" aria-live="polite"></p></section><section id="blood-search" class="information-section"><p class="section-label">Search Blood</p><h2>Find Compatible Donors Near You.</h2><form id="publicDonorSearch" class="community-form"><div class="input-group"><label for="publicGroup">Recipient Blood Group</label><select id="publicGroup" name="group" class="blood-select" required></select></div><div class="input-group"><label for="publicDistrict">District</label><select id="publicDistrict" name="district"></select></div><div class="input-group"><label for="publicArea">Area</label><input id="publicArea" name="area"></div><div class="input-group"><label for="publicPostcode">Postcode</label><input id="publicPostcode" name="postalCode" pattern="[0-9]{4}" maxlength="4"></div><button class="btn btn-primary">Search</button></form><p id="donorSearchMessage" role="status"></p><div id="publicDonorResults" class="community-grid"></div></section>
+                    <section id="requests" class="request-section">
+                        <div class="section-heading">
+                            <h2>Open Blood Requests</h2>
+                            <span aria-hidden="true">↓</span>
+                        </div>
+                        <p class="section-description">
+                            Find A Hospital Request And Take The First Step Toward Helping Someone
+                            In Need.
+                        </p>
+                        <p id="message" role="status" aria-live="polite"></p>
+                        <div class="input-group filter-group">
+                            <label for="groupFilter">Filter By Blood Group</label>
+                            <select
+                                id="groupFilter"
+                                name="groupFilter"
+                                class="blood-filter"
+                            ></select>
+                        </div>
+                        <div class="location-sort-controls">
+                            <div class="input-group">
+                                <label for="sortArea">Your Area (Matching Hospitals First)</label
+                                ><input id="sortArea" name="sortArea" type="text" />
+                            </div>
+                            <div class="input-group">
+                                <label for="sortPostalCode"
+                                    >Your Postcode (Matching Hospitals First)</label
+                                ><input
+                                    id="sortPostalCode"
+                                    name="sortPostalCode"
+                                    type="text"
+                                    pattern="[0-9]{4}"
+                                    maxlength="4"
+                                    inputmode="numeric"
+                                />
+                            </div>
+                            <p class="sorting-note">
+                                Same Postcode First, Then Same Area. Other Hospital Requests Remain
+                                Visible.
+                            </p>
+                        </div>
+                        <button
+                            type="button"
+                            id="searchRequests"
+                            class="btn btn-primary search-button"
+                        >
+                            Search
+                        </button>
+                        <div id="hospitalList" class="row"></div>
+                    </section>
+
+                    <section id="how-it-works" class="information-section">
+                        <p class="section-label">How It Works</p>
+                        <h2>One Community. A Simple Way To Help.</h2>
+                        <ol>
+                            <li>
+                                <strong>Create Your Account.</strong> Register As A Donor Or
+                                Volunteer And Wait For Approval.
+                            </li>
+                            <li>
+                                <strong>Complete Your Profile.</strong> Add Your Blood Group, Area
+                                And Availability.
+                            </li>
+                            <li>
+                                <strong>Find A Request.</strong> Pledge To A Compatible Request And
+                                Let Medical Staff Coordinate The Next Step.
+                            </li>
+                        </ol>
+                    </section>
+
+                    <section id="about" class="information-section">
+                        <p class="section-label">Our Community</p>
+                        <h2>Help Begins With A Connection.</h2>
+                        <p>
+                            Blood For Need Brings Donors, Volunteers And Medical Staff Together For
+                            Voluntary Blood Donation. Medical Staff Confirm Donor Suitability And
+                            Coordinate Patient Requests.
+                        </p>
+                        <a class="dark-button" href="register.html">Join The Community</a>
+                        <img
+                            src="community-bangladesh.png"
+                            alt="Illustration Of Bangladeshi Volunteers Coordinating A Blood Donation Camp"
+                            class="community-visual"
+                        />
+                    </section>
+                    <section id="activities" class="information-section"><p class="section-label">Community Activities</p><h2>Together, We Make A Difference.</h2><div id="activityPosts" class="community-grid"></div></section>
+                    <section id="news" class="information-section"><p class="section-label">Latest News</p><h2>Updates From Our Community.</h2><div id="newsPosts" class="community-grid"></div></section>
+                    <section id="units" class="information-section"><p class="section-label">Our Network</p><h2>Zones And Units.</h2><div id="communityUnits" class="community-grid"></div></section>
+                    <section id="contact" class="information-section"><p class="section-label">Contact Us</p><h2>Let Us Hear From You.</h2><form id="contactForm" class="community-form"><div class="input-group"><label for="contactName">Name</label><input id="contactName" name="name" required maxlength="120"></div><div class="input-group"><label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" required></div><div class="input-group"><label for="contactSubject">Subject</label><input id="contactSubject" name="subject" required maxlength="120"></div><div class="input-group"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" required maxlength="3000"></textarea></div><button class="btn btn-primary">Send Message</button></form><p id="contactStatus" role="status"></p></section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="home-footer">
+            <span>Blood For Need © 2026</span>
+            <a href="index.html#contact">Contact Us</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+        </footer>
+
+        <script src="locations.js"></script>
+        <script src="upazilas.js"></script><script src="common.js"></script>
+        <script src="index.js"></script><script src="community-ui.js"></script><script src="public-request.js"></script>
+    </body>
+</html>
